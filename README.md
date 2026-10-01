@@ -36,8 +36,5 @@ docs/insights.md             findings and recommendations
 ## Headline results
 EUR 27.6M spend across 60 suppliers - OTIF 73.8% - 87.1% contract compliance - top 10 suppliers = 48% of spend - 12.5% of item-months in stock-out. Full findings in `docs/insights.md`.
 
-## Screenshots
-Add report screenshots to `docs/screenshots/` and embed them here.
-
 ## Author
 Kirankumar R - github.com/Kirankumar-11
