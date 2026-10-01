@@ -1,0 +1,121 @@
+item_id,item_name,sku,category_id,list_price,unit_of_measure,standard_lead_time_days
+1,Circuit Breaker Type A,ELE-001,1,171.73,Each,15
+2,Cable Drum Type A,ELE-002,1,224.2,Each,14
+3,LED Panel Type A,ELE-003,1,134.92,Each,13
+4,Distribution Board Type A,ELE-004,1,324.13,Each,12
+5,Socket Set Type A,ELE-005,1,164.93,Each,16
+6,Contactor Type A,ELE-006,1,22.46,Each,16
+7,Circuit Breaker Type B,ELE-007,1,61.97,Each,15
+8,Cable Drum Type B,ELE-008,1,277.9,Each,14
+9,LED Panel Type B,ELE-009,1,113.99,Each,14
+10,Distribution Board Type B,ELE-010,1,60.63,Each,16
+11,Socket Set Type B,ELE-011,1,30.69,Each,12
+12,Contactor Type B,ELE-012,1,18.34,Each,15
+13,Circuit Breaker Type C,ELE-013,1,203.36,Each,13
+14,Cable Drum Type C,ELE-014,1,163.36,Each,15
+15,LED Panel Type C,ELE-015,1,45.82,Each,12
+16,Distribution Board Type C,ELE-016,1,249.95,Each,17
+17,Socket Set Type C,ELE-017,1,174.14,Each,16
+18,Contactor Type C,ELE-018,1,65.25,Each,13
+19,Insulation Roll Type A,BUI-019,2,6.06,Each,8
+20,Plasterboard Type A,BUI-020,2,99.74,Each,5
+21,Cement Bag Type A,BUI-021,2,130.71,Each,7
+22,Timber Batten Type A,BUI-022,2,20.85,Each,10
+23,Sealant Case Type A,BUI-023,2,25.35,Each,5
+24,Fixings Box Type A,BUI-024,2,11.47,Each,7
+25,Insulation Roll Type B,BUI-025,2,8.84,Each,9
+26,Plasterboard Type B,BUI-026,2,13.51,Each,7
+27,Cement Bag Type B,BUI-027,2,94.12,Each,10
+28,Timber Batten Type B,BUI-028,2,192.15,Each,7
+29,Sealant Case Type B,BUI-029,2,107.56,Each,5
+30,Fixings Box Type B,BUI-030,2,191.79,Each,6
+31,Insulation Roll Type C,BUI-031,2,170.02,Each,10
+32,Plasterboard Type C,BUI-032,2,17.69,Each,7
+33,Cement Bag Type C,BUI-033,2,99.5,Each,8
+34,Timber Batten Type C,BUI-034,2,12.01,Each,5
+35,Laptop Type A,IT -035,3,41.14,Each,12
+36,Monitor Type A,IT -036,3,502.57,Each,12
+37,Network Switch Type A,IT -037,3,585.93,Each,9
+38,Docking Station Type A,IT -038,3,229.48,Each,12
+39,Software Licence Type A,IT -039,3,348.59,Each,8
+40,Server Disk Type A,IT -040,3,61.86,Each,8
+41,Laptop Type B,IT -041,3,509.42,Each,11
+42,Monitor Type B,IT -042,3,343.97,Each,10
+43,Network Switch Type B,IT -043,3,735.81,Each,11
+44,Docking Station Type B,IT -044,3,329.04,Each,11
+45,Software Licence Type B,IT -045,3,336.16,Each,12
+46,Server Disk Type B,IT -046,3,44.98,Each,9
+47,Laptop Type C,IT -047,3,210.89,Each,13
+48,Monitor Type C,IT -048,3,189.43,Each,9
+49,Hi-Vis Jacket Type A,SAF-049,4,84.53,Each,4
+50,Safety Boots Type A,SAF-050,4,3.77,Each,5
+51,Hard Hat Type A,SAF-051,4,9.02,Each,9
+52,Gloves Box Type A,SAF-052,4,39.97,Each,5
+53,Safety Goggles Type A,SAF-053,4,26.52,Each,7
+54,First Aid Kit Type A,SAF-054,4,40.34,Each,8
+55,Hi-Vis Jacket Type B,SAF-055,4,14.71,Each,6
+56,Safety Boots Type B,SAF-056,4,5.77,Each,8
+57,Hard Hat Type B,SAF-057,4,3.28,Each,4
+58,Gloves Box Type B,SAF-058,4,50.63,Each,4
+59,Safety Goggles Type B,SAF-059,4,18.27,Each,8
+60,First Aid Kit Type B,SAF-060,4,21.3,Each,4
+61,Hi-Vis Jacket Type C,SAF-061,4,5.44,Each,6
+62,Safety Boots Type C,SAF-062,4,17.18,Each,8
+63,Carton Pack Type A,PAC-063,5,4.76,Each,6
+64,Pallet Wrap Type A,PAC-064,5,13.2,Each,6
+65,Bubble Wrap Roll Type A,PAC-065,5,4.4,Each,10
+66,Packing Tape Box Type A,PAC-066,5,1.62,Each,5
+67,Pallet Type A,PAC-067,5,51.33,Each,7
+68,Label Roll Type A,PAC-068,5,17.55,Each,10
+69,Carton Pack Type B,PAC-069,5,2.97,Each,9
+70,Pallet Wrap Type B,PAC-070,5,24.25,Each,10
+71,Bubble Wrap Roll Type B,PAC-071,5,18.83,Each,9
+72,Packing Tape Box Type B,PAC-072,5,3.05,Each,7
+73,Pallet Type B,PAC-073,5,1.48,Each,7
+74,Label Roll Type B,PAC-074,5,6.46,Each,10
+75,Carton Pack Type C,PAC-075,5,2.29,Each,9
+76,Pallet Wrap Type C,PAC-076,5,10.71,Each,6
+77,Drill Bit Set Type A,TOO-077,6,9.39,Each,8
+78,Lubricant Drum Type A,TOO-078,6,155.81,Each,11
+79,Bearing Type A,TOO-079,6,129.04,Each,9
+80,Hydraulic Hose Type A,TOO-080,6,82.69,Each,8
+81,Power Tool Type A,TOO-081,6,67.12,Each,6
+82,Filter Kit Type A,TOO-082,6,6.01,Each,9
+83,Drill Bit Set Type B,TOO-083,6,29.78,Each,10
+84,Lubricant Drum Type B,TOO-084,6,43.44,Each,6
+85,Bearing Type B,TOO-085,6,19.67,Each,9
+86,Hydraulic Hose Type B,TOO-086,6,6.59,Each,6
+87,Power Tool Type B,TOO-087,6,68.28,Each,10
+88,Filter Kit Type B,TOO-088,6,348.3,Each,7
+89,Drill Bit Set Type C,TOO-089,6,66.14,Each,8
+90,Lubricant Drum Type C,TOO-090,6,69.37,Each,8
+91,Bearing Type C,TOO-091,6,4.47,Each,6
+92,Hydraulic Hose Type C,TOO-092,6,41.06,Each,11
+93,Tyre Type A,FLE-093,7,424.08,Each,10
+94,Brake Pad Set Type A,FLE-094,7,102.77,Each,10
+95,Battery Type A,FLE-095,7,104.78,Each,12
+96,Wiper Set Type A,FLE-096,7,154.43,Each,15
+97,Service Kit Type A,FLE-097,7,96.49,Each,14
+98,Headlamp Unit Type A,FLE-098,7,48.91,Each,11
+99,Tyre Type B,FLE-099,7,120.94,Each,15
+100,Brake Pad Set Type B,FLE-100,7,11.09,Each,12
+101,Battery Type B,FLE-101,7,522.41,Each,10
+102,Wiper Set Type B,FLE-102,7,19.57,Each,15
+103,Service Kit Type B,FLE-103,7,141.89,Each,11
+104,Headlamp Unit Type B,FLE-104,7,249.87,Each,10
+105,Paper Box Type A,OFF-105,8,6.33,Each,3
+106,Toner Type A,OFF-106,8,39.24,Each,5
+107,Cleaning Kit Type A,OFF-107,8,46.54,Each,3
+108,Desk Chair Type A,OFF-108,8,85.08,Each,2
+109,Kitchen Supplies Type A,OFF-109,8,5.13,Each,3
+110,Stationery Pack Type A,OFF-110,8,19.39,Each,2
+111,Paper Box Type B,OFF-111,8,9.13,Each,3
+112,Toner Type B,OFF-112,8,54.73,Each,6
+113,Cleaning Kit Type B,OFF-113,8,7.33,Each,3
+114,Desk Chair Type B,OFF-114,8,6.58,Each,7
+115,Kitchen Supplies Type B,OFF-115,8,16.48,Each,7
+116,Stationery Pack Type B,OFF-116,8,92.35,Each,3
+117,Paper Box Type C,OFF-117,8,3.92,Each,5
+118,Toner Type C,OFF-118,8,11.88,Each,2
+119,Cleaning Kit Type C,OFF-119,8,116.31,Each,2
+120,Desk Chair Type C,OFF-120,8,42.87,Each,7

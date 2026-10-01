@@ -1,0 +1,140 @@
+// =====================================================================
+// Procurement Analytics - DAX measures
+// Create a blank table "_Measures" (Enter Data) and add these measures to it.
+// Organise into display folders: Spend | Compliance | Delivery | Quality | Payments | Suppliers | Stock
+// =====================================================================
+
+// ---------- SPEND ----------
+Total Spend = SUM ( fact_po_lines[line_value] )
+
+PO Count = DISTINCTCOUNT ( fact_po_lines[po_number] )
+
+Active Suppliers = DISTINCTCOUNT ( fact_po_lines[supplier_id] )
+
+Avg PO Value = DIVIDE ( [Total Spend], [PO Count] )
+
+Spend LY = CALCULATE ( [Total Spend], SAMEPERIODLASTYEAR ( dim_date[Date] ) )
+
+Spend YoY % = DIVIDE ( [Total Spend] - [Spend LY], [Spend LY] )
+
+Spend YTD = TOTALYTD ( [Total Spend], dim_date[Date] )
+
+Spend 3M Rolling Avg =
+AVERAGEX (
+    DATESINPERIOD ( dim_date[Date], MAX ( dim_date[Date] ), -3, MONTH ),
+    CALCULATE ( [Total Spend] )
+)
+
+// ---------- CONTRACT COMPLIANCE & PRICE ----------
+Contract Spend = CALCULATE ( [Total Spend], fact_po_lines[is_on_contract] = TRUE () )
+
+Maverick Spend = [Total Spend] - [Contract Spend]
+
+Contract Compliance % = DIVIDE ( [Contract Spend], [Total Spend] )
+
+Contract Value = SUM ( fact_po_lines[contract_value] )
+
+Price Variance = [Total Spend] - [Contract Value]          // positive = paid more than contract price
+
+Price Variance % = DIVIDE ( [Price Variance], [Contract Value] )
+
+Maverick Price Premium =
+CALCULATE ( [Price Variance], fact_po_lines[is_on_contract] = FALSE () )
+
+// ---------- DELIVERY ----------
+Delivered Lines = CALCULATE ( COUNTROWS ( fact_po_lines ), NOT ISBLANK ( fact_po_lines[delivery_date] ) )
+
+Open Lines = CALCULATE ( COUNTROWS ( fact_po_lines ), ISBLANK ( fact_po_lines[delivery_date] ) )
+
+On-Time Delivery % =
+DIVIDE ( CALCULATE ( COUNTROWS ( fact_po_lines ), fact_po_lines[is_on_time] = TRUE () ), [Delivered Lines] )
+
+In-Full % =
+DIVIDE ( CALCULATE ( COUNTROWS ( fact_po_lines ), fact_po_lines[is_in_full] = TRUE () ), [Delivered Lines] )
+
+OTIF % =
+DIVIDE ( CALCULATE ( COUNTROWS ( fact_po_lines ), fact_po_lines[is_otif] = TRUE () ), [Delivered Lines] )
+
+Avg Delay Days = AVERAGE ( fact_po_lines[delivery_delay_days] )
+
+Avg Delay (Late Lines Only) =
+CALCULATE ( AVERAGE ( fact_po_lines[delivery_delay_days] ), fact_po_lines[is_on_time] = FALSE () )
+
+// ---------- QUALITY ----------
+Units Received = SUM ( fact_po_lines[qty_received] )
+
+Units Rejected = SUM ( fact_po_lines[qty_rejected] )
+
+Rejection Rate % = DIVIDE ( [Units Rejected], [Units Received] )
+
+// ---------- PAYMENTS ----------
+Paid Lines = CALCULATE ( COUNTROWS ( fact_po_lines ), NOT ISBLANK ( fact_po_lines[paid_date] ) )
+
+Paid On Time % =
+DIVIDE ( CALCULATE ( COUNTROWS ( fact_po_lines ), fact_po_lines[is_paid_on_time] = TRUE () ), [Paid Lines] )
+
+Avg Days To Pay = AVERAGE ( fact_po_lines[days_invoice_to_paid] )
+
+Overdue Unpaid Value =
+// Invoices past due at the report cut-off date and still unpaid
+VAR CutOff = MAX ( dim_date[Date] )
+RETURN
+    CALCULATE (
+        [Total Spend],
+        ISBLANK ( fact_po_lines[paid_date] ),
+        NOT ISBLANK ( fact_po_lines[invoice_date] ),
+        fact_po_lines[due_date] < CutOff
+    )
+
+// ---------- SUPPLIERS ----------
+Top 10 Supplier Spend =
+SUMX ( TOPN ( 10, VALUES ( dim_supplier[supplier_name] ), [Total Spend], DESC ), [Total Spend] )
+
+Top 10 Supplier Share % = DIVIDE ( [Top 10 Supplier Spend], [Total Spend] )
+
+Supplier Rank = RANKX ( ALLSELECTED ( dim_supplier[supplier_name] ), [Total Spend], , DESC, Dense )
+
+Cumulative Spend % (Pareto) =
+VAR r = [Supplier Rank]
+VAR Everyone = ALLSELECTED ( dim_supplier[supplier_name] )
+RETURN
+    DIVIDE (
+        SUMX ( FILTER ( Everyone, [Supplier Rank] <= r ), [Total Spend] ),
+        CALCULATE ( [Total Spend], Everyone )
+    )
+
+// Weighted scorecard: 40% OTIF, 30% quality, 30% price adherence. Weights are a documented assumption.
+Quality Score = 1 - MIN ( [Rejection Rate %] * 10, 1 )         // 10% rejection => 0
+
+Price Adherence Score = 1 - MIN ( MAX ( [Price Variance %], 0 ) * 10, 1 )   // +10% over contract => 0
+
+Supplier Score =
+100 * ( 0.4 * [OTIF %] + 0.3 * [Quality Score] + 0.3 * [Price Adherence Score] )
+
+Supplier Rating =
+SWITCH (
+    TRUE (),
+    ISBLANK ( [Supplier Score] ), BLANK (),
+    [Supplier Score] >= 85, "A - Strategic",
+    [Supplier Score] >= 75, "B - Good",
+    [Supplier Score] >= 65, "C - Watch",
+    "D - Review"
+)
+
+// ---------- STOCK ----------
+// Snapshots are month-end, so balances use the LAST date in the current filter context (never SUM across months).
+Closing On Hand = CALCULATE ( SUM ( fact_stock_snapshot[on_hand_qty] ), LASTDATE ( dim_date[Date] ) )
+
+Closing Monthly Usage = CALCULATE ( SUM ( fact_stock_snapshot[avg_monthly_usage] ), LASTDATE ( dim_date[Date] ) )
+
+Months of Cover = DIVIDE ( [Closing On Hand], [Closing Monthly Usage] )
+
+Stock-out Items =
+CALCULATE ( COUNTROWS ( fact_stock_snapshot ), fact_stock_snapshot[is_stockout] = TRUE (), LASTDATE ( dim_date[Date] ) )
+
+Below Reorder Items =
+CALCULATE ( COUNTROWS ( fact_stock_snapshot ), fact_stock_snapshot[is_below_reorder] = TRUE (), LASTDATE ( dim_date[Date] ) )
+
+Stock-out Rate % =
+DIVIDE ( CALCULATE ( COUNTROWS ( fact_stock_snapshot ), fact_stock_snapshot[is_stockout] = TRUE () ),
+         COUNTROWS ( fact_stock_snapshot ) )

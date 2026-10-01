@@ -1,0 +1,61 @@
+supplier_id,supplier_name,country,primary_category_id,payment_terms_days,supplier_tier
+1,Falcon Components,France,1,45,Tactical
+2,Liffey Industrial,France,2,30,Preferred
+3,Celtic Components,Ireland,3,45,Preferred
+4,Falcon Industrial,United Kingdom,4,45,Strategic
+5,Northway Industrial,Germany,5,60,Approved
+6,Falcon Distribution,Spain,6,30,Approved
+7,Ironbridge Industrial,Germany,7,30,Approved
+8,Ironbridge Trading,United Kingdom,8,45,Approved
+9,Harbour Supplies,Ireland,1,30,Preferred
+10,Liffey Distribution,United Kingdom,2,30,Tactical
+11,Granite Trading,Netherlands,3,30,Approved
+12,Harbour Components,Spain,4,30,Preferred
+13,Orbit Trading,United Kingdom,5,30,Preferred
+14,Clarion Components,Ireland,6,30,Preferred
+15,Vertex Distribution,Ireland,7,30,Preferred
+16,Emerald Industrial,Poland,8,30,Preferred
+17,Northway Solutions,France,1,30,Tactical
+18,Redwood Industrial,Ireland,2,45,Approved
+19,Atlas Supplies,Ireland,3,30,Preferred
+20,Pinnacle Supplies,Germany,4,60,Approved
+21,Emerald Trading,Ireland,5,60,Approved
+22,Orbit Distribution,France,6,30,Tactical
+23,Ironbridge Supplies,Ireland,7,30,Approved
+24,Bluegate Distribution,Ireland,8,45,Approved
+25,Clarion Industrial,China,1,60,Preferred
+26,Clarion Solutions,Ireland,2,45,Tactical
+27,Vertex Solutions,Ireland,3,60,Approved
+28,Liffey Solutions,Ireland,4,45,Tactical
+29,Atlas Distribution,Ireland,5,45,Preferred
+30,Pinnacle Industrial,Ireland,6,30,Tactical
+31,Atlas Industrial,Ireland,7,45,Approved
+32,Shannon Distribution,Ireland,8,30,Preferred
+33,Emerald Components,Ireland,1,45,Approved
+34,Granite Supplies,Germany,2,60,Approved
+35,Summit Supplies,Netherlands,3,30,Strategic
+36,Falcon Supplies,Ireland,4,45,Approved
+37,Shannon Supplies,Ireland,5,30,Tactical
+38,Granite Solutions,United Kingdom,6,45,Preferred
+39,Keystone Distribution,Spain,7,30,Approved
+40,Bluegate Trading,Spain,8,60,Approved
+41,Harbour Trading,Ireland,1,30,Preferred
+42,Harbour Solutions,Ireland,2,60,Tactical
+43,Emerald Solutions,Ireland,3,60,Approved
+44,Atlas Trading,Ireland,4,45,Preferred
+45,Shannon Components,Germany,5,45,Tactical
+46,Northway Trading,United Kingdom,6,45,Tactical
+47,Shannon Industrial,Ireland,7,60,Preferred
+48,Bluegate Solutions,Ireland,8,30,Tactical
+49,Falcon Trading,United Kingdom,1,45,Preferred
+50,Celtic Industrial,Ireland,2,30,Tactical
+51,Atlas Components,France,3,45,Approved
+52,Harbour Industrial,Ireland,4,30,Approved
+53,Shannon Solutions,China,5,45,Strategic
+54,Keystone Components,Ireland,6,45,Tactical
+55,Northway Distribution,France,7,30,Strategic
+56,Pinnacle Distribution,China,8,45,Preferred
+57,Orbit Solutions,United States,1,45,Preferred
+58,Vertex Components,France,2,45,Approved
+59,Bluegate Components,Poland,3,30,Preferred
+60,Granite Industrial,Germany,4,45,Tactical
